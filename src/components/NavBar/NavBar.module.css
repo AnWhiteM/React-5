@@ -1,0 +1,16 @@
+.navBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #242424;
+      border-bottom: 1px solid #fff;
+      z-index: 999;
+      
+}
+
+.navLink{
+    margin-right: 20px;
+    margin-left: 30px;
+    font-size: 30px;
+}

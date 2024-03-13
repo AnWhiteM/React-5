@@ -1,12 +1,13 @@
-import { useParams, NavLink, Outlet, useNavigate} from 'react-router-dom';
-import { Suspense, useEffect, useState } from 'react';
+import { useParams, NavLink, Outlet, useLocation, Link} from 'react-router-dom';
+import { Suspense, useEffect, useState, useRef } from 'react';
 import { getMoviesId } from '../../../api';
 import css from './MovieDetailsPage.module.css'
 
 
 
 export default function MovieDetailsPage() {
-  const navigate = useNavigate();
+  const location = useLocation();
+  const backLink = useRef(location.state ?? "/")
   
 
   const { movieId } = useParams();
@@ -32,13 +33,10 @@ export default function MovieDetailsPage() {
   return (
     <>
       {error && <p>Oops!</p>}
-      <button
-        type="button"
-        onClick={() => navigate(-1)}
-        className={css.backBtn}
-      >
-        Go back
-      </button>
+      <div className={css.backBtn}>
+      <Link to={backLink.current}>Go Back</Link>
+      </div>
+      
 
       {movie && (
         <div>

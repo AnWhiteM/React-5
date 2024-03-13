@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-export const MovieDetails = ({ items }) => {
+export const MovieList = ({ items }) => {
   const location = useLocation();
   console.log('MD', location);
 

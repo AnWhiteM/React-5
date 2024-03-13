@@ -1,15 +1,13 @@
-import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
-import { Suspense, useEffect, useRef, useState } from 'react';
+import { useParams, NavLink, Outlet, useNavigate} from 'react-router-dom';
+import { Suspense, useEffect, useState } from 'react';
 import { getMoviesId } from '../../../api';
 import css from './MovieDetailsPage.module.css'
 
-import BackLink from '../../components/BackLink/BackLink';
+
 
 export default function MovieDetailsPage() {
-  const location = useLocation();
-  console.log(location.state);
-  const backLinkRef = useRef(location.state);
-  console.log('MDP:', backLinkRef);
+  const navigate = useNavigate();
+  
 
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
@@ -34,7 +32,13 @@ export default function MovieDetailsPage() {
   return (
     <>
       {error && <p>Oops!</p>}
-      <BackLink href={backLinkRef.current ?? '/movie'}>Back to all Movies</BackLink>
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        className={css.backBtn}
+      >
+        Go back
+      </button>
 
       {movie && (
         <div>

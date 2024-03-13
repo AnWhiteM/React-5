@@ -4,7 +4,7 @@ import { getTrendMovies } from '../../../api';
 import { Loader } from "../../components/Loader/Loader";
 import { useLocation } from 'react-router-dom';
 
-export default function Home() {
+export default function HomePage() {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
     const [movies, setMovies] = useState([]);

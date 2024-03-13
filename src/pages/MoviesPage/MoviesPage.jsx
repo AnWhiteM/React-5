@@ -3,9 +3,9 @@ import { MovieSearch } from '../../components/MovieSearch/MovieSearch';
 import { Loader } from '../../components/Loader/Loader';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getFilm } from '../../../api';
-import { MovieDetails } from '../../components/MovieDetails/MovieDetails';
+import { MovieList } from '../../components/MovieList/MovieList';
 
-export default function Movie() {
+export default function MoviesPage() {
     const location = useLocation();
     console.log('movie', location);
   
@@ -46,7 +46,7 @@ export default function Movie() {
         ) : (
           <>
             <MovieSearch onSearch={changeSearch} value={search} />
-            {films.length > 0 && <MovieDetails items={films} />}
+            {films.length > 0 && <MovieList items={films} />}
           </>
         )}
       </div>
